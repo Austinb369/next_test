@@ -13,7 +13,7 @@ export default function NavBar () {
                             <Link href="/" className="font-bold">Home</Link>
                         </li>
                         <li>
-                            <Link href="/login"className="font-bold">Login</Link>
+                            <Link href='/users' className="font-bold">Users</Link>
                         </li>
                     </ul>
                 </div>
