@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Api1 from "./api1";
 import Api2 from "./api2";
 import Api3 from "./api3";
@@ -11,7 +10,7 @@ export default function Apis () {
                 <Api1 />
             <h1 className="text-center text-4xl font-bold">Lista aleatoria de criminales de odio</h1>
                 <Api2 />
-                <h1 className="text-center text-4xl font-bold">Chistes cotorros para alivianar</h1>
+                <h1 className="text-center text-4xl font-bold">Chistes cotorros de Chuck Norris para alivianar</h1>
                 <Api3 />
         </div>
     );
