@@ -1,17 +1,12 @@
 "use client";
-
 import { useEffect, useState } from 'react';
-
 const Api3 = () => {
   const [jokes, setJokes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Función para obtener la URL de chistes
   const getRandomJokeUrl = () => {
-    return `https://api.chucknorris.io/jokes/random?lang=es`; // Si hay una API específica para chistes en español
+    return `https://api.chucknorris.io/jokes/random?lang=es`;
   };
-
   const fetchJokes = async () => {
     try {
       const urls = [
@@ -19,12 +14,8 @@ const Api3 = () => {
         getRandomJokeUrl(),
         getRandomJokeUrl(),
       ];
-
-      // Realizar múltiples peticiones para obtener varios chistes
       const responses = await Promise.all(urls.map(url => fetch(url)));
       const data = await Promise.all(responses.map(res => res.json()));
-
-      // Extraer la información relevante de cada respuesta
       setJokes(data);
     } catch (error) {
       setError('Error fetching jokes');
@@ -32,14 +23,12 @@ const Api3 = () => {
       setLoading(false);
     }
   };
-
   useEffect(() => {
     fetchJokes();
   }, []);
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p className="error-message">{error}</p>;
-
   return (
     <div className="flex flex-wrap justify-around">
       {jokes.length > 0 ? (
@@ -56,5 +45,4 @@ const Api3 = () => {
     </div>
   );
 };
-
 export default Api3;

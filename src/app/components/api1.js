@@ -1,7 +1,5 @@
 "use client";
-
 import { useEffect, useState } from 'react';
-//import '../styles/Component2.css'; 
 
 const Api1 = () => {
   const [pokemonData, setPokemonData] = useState([]);

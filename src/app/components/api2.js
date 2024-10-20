@@ -6,8 +6,6 @@ const Api2 = () => {
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Función para obtener la URL de usuarios aleatorios
   const getRandomUserUrl = () => {
     return `https://randomuser.me/api/`;
   };
@@ -20,11 +18,9 @@ const Api2 = () => {
         getRandomUserUrl(),
       ];
 
-      // Realizar múltiples peticiones para obtener varios usuarios
       const responses = await Promise.all(urls.map(url => fetch(url)));
       const data = await Promise.all(responses.map(res => res.json()));
 
-      // Extraer la información relevante de cada respuesta
       setUserData(data.map(user => user.results[0]));
     } catch (error) {
       setError('Error fetching user data');
